@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+
+{% block midpart %}
+<div class="hero-box hero-box-smaller bg-gradient-5 font-inverse">
+    <div class="container">
+        <h1 class="pad0A hero-heading font-size-28 wow fadeInDown" data-wow-duration="0.6s">Contact us</h1>
+    </div>
+    <div class="hero-overlay bg-black"></div>
+</div>
+<div class="mrg25T pad25T pad25B">
+    <div class="container mrg25T mrg25B row">
+        <div class="col-md-8">
+            <form action="" class="form-horizontal bordered-row" method="post" >
+            {% csrf_token %}
+                <div class="content-box">
+                    <h3 class="content-box-header bg-default">
+                        Send us an email
+                    </h3>
+                    <div class="content-box-wrapper">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Name:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="name" id="name" placeholder="Required Field" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Email:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="email" name="email" data-parsley-type="email" placeholder="Email address" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Website:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="website" id="website" data-parsley-type="url" placeholder="URL address" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Message:</label>
+                                <div class="col-sm-8">
+                                    <textarea id="message" name="message" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-8">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" required name="terms">
+                                            Accept Terms &amp; Conditions
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-pane">
+                        <button class="btn btn-info">Send</button>
+                        <button class="btn btn-link font-gray-dark">Cancel</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-4">
+            <div class="row mrg15T">
+                <div class="col-md-4">
+                    <a href="#" title="Follow us on Facebook" class="btn btn-block tooltip-button bg-facebook">
+                        <i class="glyph-icon icon-facebook"></i>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" title="Follow us on Twitter" class="btn btn-block tooltip-button bg-twitter">
+                        <i class="glyph-icon icon-twitter"></i>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" title="Follow us on Google+" class="btn btn-block tooltip-button bg-google">
+                        <i class="glyph-icon icon-google-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="divider mrg25T mrg25B"></div>
+            <h3>Get in touch</h3>
+            <ul class="contact-list mrg15T mrg25B reset-ul">
+                <li>
+                    <i class="glyph-icon icon-home"></i>
+                    #123, Rox Cafe, Kormangala Sector 4, Bengaluru
+                </li>
+                <li>
+                    <i class="glyph-icon icon-phone"></i>
+                    +91 9876543201
+                </li>
+                <li>
+                    <i class="glyph-icon icon-envelope-o"></i>
+                    <a href="#" title="">contact@OneTouchAI.com</a>
+                </li>
+            </ul>
+            <div class="divider mrg25T mrg25B"></div>
+            <h3 class="mrg15B">About us</h3>
+            <p class="font-gray-dark">For science, music, sport. The languages only differ in their grammar, their pronunciation and their most common words.</p>
+        </div>
+    </div>
+</div>
+
+ {% endblock %}

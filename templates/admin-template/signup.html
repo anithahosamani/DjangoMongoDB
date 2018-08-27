@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+
+{% block midpart %}
+<div class="hero-box hero-box-smaller bg-gradient-5 font-inverse">
+    <div class="container">
+        <h1 align="center" class="pad0A hero-heading font-size-28 wow fadeInDown" data-wow-duration="0.6s">Sign Up Now and Witness the Power of AI in your own Business.</h1>
+    </div>
+    <div class="hero-overlay bg-black"></div>
+</div>
+
+
+<div class="center-vertical">
+    <div class="center-content row">
+
+        <form action="" id="login-validation" name="login-validation" class="col-md-6 col-sm-5 col-xs-11 col-lg-4 center-margin" method="POST">
+            {% csrf_token %}
+            <h3 class="text-center pad25B font-gray text-transform-upr font-size-23"><span class="opacity-80"></span></h3>
+            <div id="login-form" class="content-box bg-default">
+                <div class="content-box-wrapper pad20A">
+                    <img class="mrg25B center-margin radius-all-100 display-block" src="/static/assets/image-resources/logo1.png" alt="">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon addon-inside bg-gray">
+                                <i class="glyph-icon icon-user"></i>
+                            </span>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter the name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon addon-inside bg-gray">
+                                <i class="glyph-icon icon-envelope-o"></i>
+                            </span>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon addon-inside bg-gray">
+                                <i class="glyph-icon icon-phone"></i>
+                            </span>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter PhoneNo">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon addon-inside bg-gray">
+                                <i class="glyph-icon icon-globe"></i>
+                            </span>
+                            <input type="text" class="form-control" id="website" name="website" placeholder="Enter Website">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon addon-inside bg-gray">
+                                <i class="glyph-icon icon-home"></i>
+                            </span>
+                            <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon addon-inside bg-gray">
+                                <i class="glyph-icon icon-unlock-alt"></i>
+                            </span>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" onkeyup="checkPass(); return false;" />
+                        </div>
+                        <span id='msg'></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon addon-inside bg-gray">
+                                <i class="glyph-icon icon-unlock-alt"></i>
+                            </span>
+                            <input type="password" class="form-control" id="password1" name="password1"  placeholder="Confirm Password" onkeyup="checkPass(); return false;" />
+                        </div>
+                        <div id="error-nwl"></div>
+                        <!--<span id='message'></span>-->
+                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<div class="input-group">-->
+                            <!--<span class="input-group-addon addon-inside bg-gray">-->
+                                <!--<i class="glyph-icon icon-envelope-o"></i>-->
+                            <!--</span>-->
+                            <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block btn-primary">Register</button>
+                    </div>
+                    <div class="row">
+                        <div class="checkbox-primary col-md-6" style="height: 20px;">
+                            <label>
+                                <input type="checkbox" id="loginCheckbox1" class="custom-checkbox">
+                                Remember me
+                            </label>
+                        </div>
+                        <!--<div class="text-right col-md-6">-->
+                            <!--<a href="#" class="switch-button" switch-target="#login-forgot" switch-parent="#login-form" title="Recover password">Forgot your password?</a>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+
+            <div id="login-forgot" class="content-box bg-default hide">
+                <div class="content-box-wrapper pad20A">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">Email address:</label>
+                        <div class="input-group">
+                            <span class="input-group-addon addon-inside bg-gray">
+                                <i class="glyph-icon icon-envelope-o"></i>
+                            </span>
+                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-pane text-center">
+                    <button type="submit" class="btn btn-md btn-primary">Recover Password</button>
+                    <a href="#" class="btn btn-md btn-link switch-button" switch-target="#login-form" switch-parent="#login-forgot" title="Cancel">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/jquery.validate.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#login-validation").validate({
+        //alert('ok')
+            rules :
+                    {
+                        name: { required: true },
+                        email: {required: true,email: true },
+                        phone: {required:true, number:true, minlength:10, maxlength:10},
+                        password: { required: true },
+                        password1: { required: true },
+                        file: { required: true },
+                    },
+          messages:
+                    {
+                    name: {required : "Please enter the name" },
+                    email : {required : "Please enter the username" },
+                    phone : {required : "Please enter the number", minlength: "Enter 10 digit PhoneNo", maxlength: "Not more than 10 digit PhoneNo" },
+                    password : {required : "Please enter the password" },
+                    password1 : {required : "Please enter the confirm password" },
+                    file : {required: "Please select file"},
+                    }
+
+        });
+    });
+</script>
+<script>
+    $('#password, #password1').on('keyup', function () {
+  if ($('#password').val() == $('#password1').val()) {
+    $('#message').html('Matching').css('color', 'green');
+  } else
+    $('#message').html('Not Matching').css('color', 'red');
+});
+</script>
+<script>
+function checkPass()
+{
+    var password = document.getElementById('password');
+    var password1 = document.getElementById('password1');
+    var message = document.getElementById('error-nwl');
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+
+    if(password.value.length > 5)
+    {
+        password.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "character number ok!"
+    }
+    else
+    {
+        password.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = " you have to enter at least 6 digit!"
+        return;
+    }
+
+    if(password.value == password1.value)
+    {
+        password1.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "ok!"
+    }
+	else
+    {
+        password.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = " These passwords don't match"
+    }
+}
+</script>
+<style>
+    .form-group label {
+    margin-bottom: 5px;
+    color: red;
+}
+</style>
+</html>
+{% endblock %}
